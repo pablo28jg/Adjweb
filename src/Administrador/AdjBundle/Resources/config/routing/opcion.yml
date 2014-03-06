@@ -1,0 +1,35 @@
+opcion:
+    pattern:  /
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:index" }
+
+opcion_menu:
+    pattern:  /{modulo_id}
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:lista" }
+    requirements: { modulo_id: \d+ }
+
+opcion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:show" }
+
+opcion_new:
+    pattern:  /new
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:new" }
+
+opcion_create:
+    pattern:  /create
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:create" }
+    requirements: { _method: post }
+
+opcion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:edit" }
+
+opcion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:update" }
+    requirements: { _method: post }
+
+opcion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AdministradorAdjBundle:Opcion:delete" }
+    requirements: { _method: post }

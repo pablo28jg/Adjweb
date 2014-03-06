@@ -1,0 +1,146 @@
+{# src/Acme/BlogBundle/Resources/views/Entidad/new.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout.html.twig' %}
+{% block titulo %}Entidad{% endblock %}
+{% block titulo_opcion %}Entidad0{% endblock %}
+{% block script %}
+<script type="text/javascript" lang="javascript">
+<!--
+//-->
+	$(function() {
+    	$( "#tabs" ).tabs();
+  	});
+</script>
+{% endblock %}
+{% block acciones_top %}
+	<a href="{{ path('entidad', {'tipoEntidad': tipoEntidad}) }}">
+        Back to the list
+    </a>
+{% endblock %}
+{% block cuerpo %}
+<div id="contentForm" class="content_form">
+<form action="{{ path(ruta, {'id': entity.id,'tipoEntidad': tipoEntidad}) }}" method="post" {{ form_enctype(form) }}>	
+	{{ form_errors(form) }}
+	<div id="tabs">
+	  <ul>
+	  	<li><a href="#tabs-0">Identificación</a></li>
+	    <li><a href="#tabs-1">Usuario</a></li>
+	    <li><a href="#tabs-2">Direccion</a></li>
+	    <li><a href="#tabs-3">Entidad</a></li>
+	  </ul>
+	  <div id="tabs-0">
+		{{ form_row(form.nombre) }}	
+		<div>
+			{{ form_label(form.apellidopaterno,"Apellido paterno") }}
+			{{ form_errors(form.apellidopaterno) }}
+			{{ form_widget(form.apellidopaterno) }}
+		</div>	
+		<div>
+			{{ form_label(form.apellidomaterno,"Apellido materno") }}
+			{{ form_errors(form.apellidomaterno) }}
+			{{ form_widget(form.apellidomaterno) }}
+		</div>	
+		<div>
+			{{ form_label(form.esrepresentante,"Es representante") }}
+			{{ form_errors(form.esrepresentante) }}
+			{{ form_widget(form.esrepresentante) }}
+		</div>
+		<div>
+			{{ form_label(form.tipopersona,"Tipo") }}
+			{{ form_errors(form.tipopersona) }}
+			{{ form_widget(form.tipopersona) }}
+		</div>
+		<div>
+			{{ form_label(form.rfc,"RFC") }}
+			{{ form_errors(form.rfc) }}
+			{{ form_widget(form.rfc) }}
+		</div>
+		<div>
+			{{ form_label(form.curp,"CURP") }}
+			{{ form_errors(form.curp) }}
+			{{ form_widget(form.curp) }}
+		</div>
+		<div>
+			{{ form_label(form.lenguaje,"Lenguaje") }}
+			{{ form_errors(form.lenguaje) }}
+			{{ form_widget(form.lenguaje) }}
+		</div>
+		<div>
+			{{ form_label(form.tipoestado,"Tipo estado") }}
+			{{ form_errors(form.tipoestado) }}
+			{{ form_widget(form.tipoestado) }}
+		</div>
+	  </div>
+	  <div id="tabs-1">
+	    {{ form_row(form.usuario) }}
+	    <div>
+			{{ form_label(form.perfilId,"Perfil") }}
+			{{ form_errors(form.perfilId) }}
+			{{ form_widget(form.perfilId) }}
+		</div>
+	  </div>
+	  <div id="tabs-2">
+	  	<div>
+			{{ form_label(form.direccionId,"Dirección") }}
+			{{ form_errors(form.direccionId) }}
+			{{ form_widget(form.direccionId) }}
+		</div>
+		{{ form_row(form.email) }}
+		<div>
+			{{ form_label(form.telefono1,"Telefono 1") }}
+			{{ form_errors(form.telefono1) }}
+			{{ form_widget(form.telefono1) }}
+		</div>
+		<div>
+			{{ form_label(form.telefono2,"Telefono 2") }}
+			{{ form_errors(form.telefono2) }}
+			{{ form_widget(form.telefono2) }}
+		</div>
+		<div>
+			{{ form_label(form.telefono3,"Telefono 3") }}
+			{{ form_errors(form.telefono3) }}
+			{{ form_widget(form.telefono3) }}
+		</div>
+	  </div>
+	  <div id="tabs-3">
+	    <div>
+			{{ form_label(form.esusuario,"Es usuario") }}
+			{{ form_errors(form.esusuario) }}
+			{{ form_widget(form.esusuario) }}
+		</div>
+		<div>
+			{{ form_label(form.esabogado,"Es abogado") }}
+			{{ form_errors(form.esabogado) }}
+			{{ form_widget(form.esabogado) }}
+		</div> 	
+		<div>
+			{{ form_label(form.escliente,"Es cliente") }}
+			{{ form_errors(form.escliente) }}
+			{{ form_widget(form.escliente) }}
+		</div>	
+		<div>
+			{{ form_label(form.escontrario,"Es contrario") }}
+			{{ form_errors(form.escontrario) }}
+			{{ form_widget(form.escontrario) }}
+		</div>
+		<div>
+			{{ form_label(form.esinstancia,"Es instancia") }}
+			{{ form_errors(form.esinstancia) }}
+			{{ form_widget(form.esinstancia) }}
+		</div>
+		<div>
+			{{ form_label(form.esotro,"Es otro") }}
+			{{ form_errors(form.esotro) }}
+			{{ form_widget(form.esotro) }}
+		</div>
+	  </div>
+	</div>
+	{{ form_rest(form) }}	
+	<button type="submit">Guardar</button>
+</form>
+</div>
+{% endblock %}
+{% block acciones_bottom %}	
+	<a href="{{ path('entidad', {'tipoEntidad': tipoEntidad}) }}">
+	        Back to the list
+	</a>
+{% endblock %}

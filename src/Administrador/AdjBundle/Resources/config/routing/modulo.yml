@@ -1,0 +1,34 @@
+modulo:
+    pattern:  /
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:index" }
+    
+modulo_menu:
+    pattern:  /menu
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:listamenu" }
+
+modulo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:show" }
+
+modulo_new:
+    pattern:  /new
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:new" }
+
+modulo_create:
+    pattern:  /create
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:create" }
+    requirements: { _method: post }
+
+modulo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:edit" }
+
+modulo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:update" }
+    requirements: { _method: post }
+
+modulo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AdministradorAdjBundle:Modulo:delete" }
+    requirements: { _method: post }

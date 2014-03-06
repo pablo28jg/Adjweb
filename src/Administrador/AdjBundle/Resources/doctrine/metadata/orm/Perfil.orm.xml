@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Perfil" table="perfil">
+    <id name="perfilId" type="integer" column="Perfil_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="perfil" type="string" column="Perfil" length="100" nullable="true"/>
+    <field name="tipoperfil" type="integer" column="TipoPerfil" nullable="false"/>
+    <field name="tipoestado" type="integer" column="TipoEstado" nullable="true"/>
+    <field name="permitirborrar" type="boolean" column="PermitirBorrar" nullable="false"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+  </entity>
+</doctrine-mapping>

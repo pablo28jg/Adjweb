@@ -1,0 +1,14 @@
+{# src/Acme/BlogBundle/Resources/views/Atributo/index.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout.html.twig' %}
+{% block titulo %}Atributos{% endblock %}
+{% block cuerpo %}
+{{ grid(grid,'APYDataGridBundle::blocks_js.jquery.html.twig') }}
+
+<ul>
+    <li>
+        <a href="{{ path('atributo_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %}

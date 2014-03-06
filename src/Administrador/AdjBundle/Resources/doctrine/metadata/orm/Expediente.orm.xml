@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Expediente" table="expediente">
+    <id name="expedienteId" type="integer" column="Expediente_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numeroexpedienteKy" type="string" column="NumeroExpediente_ky" length="30" nullable="true"/>
+    <field name="titulojuicio" type="string" column="TituloJuicio" length="200" nullable="true"/>
+    <field name="estadoprocesal" type="string" column="EstadoProcesal" length="200" nullable="true"/>
+    <field name="fechainicio" type="datetime" column="FechaInicio" nullable="true"/>
+    <field name="fechatermino" type="datetime" column="FechaTermino" nullable="true"/>
+    <field name="cuantia" type="integer" column="Cuantia" nullable="true"/>
+    <field name="tipoestado" type="integer" column="TipoEstado" nullable="true"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+    <many-to-one field="juzgado" target-entity="Entidad">
+      <join-columns>
+        <join-column name="Juzgado_id" referenced-column-name="Entidad_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tipoexpediente" target-entity="Tipoexpediente">
+      <join-columns>
+        <join-column name="TipoExpediente_id" referenced-column-name="TipoExpediente_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tipojuicio" target-entity="Tipojuicio">
+      <join-columns>
+        <join-column name="TipoJuicio_id" referenced-column-name="TipoJuicio_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="instanciaactual" target-entity="Entidad">
+      <join-columns>
+        <join-column name="InstanciaActual_id" referenced-column-name="Entidad_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="empresa" target-entity="Empresa">
+      <join-columns>
+        <join-column name="Empresa_id" referenced-column-name="Empresa_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="cliente" target-entity="Entidad">
+      <join-columns>
+        <join-column name="Cliente_id" referenced-column-name="Entidad_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="contrario" target-entity="Entidad">
+      <join-columns>
+        <join-column name="Contrario_id" referenced-column-name="Entidad_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="abogado" target-entity="Entidad">
+      <join-columns>
+        <join-column name="Abogado_id" referenced-column-name="Entidad_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,16 @@
+{# src/Acme/BlogBundle/Resources/views/Expediente/index.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout_js.html.twig' %}
+{% block titulo_opcion %}Expedientes{% endblock %}
+{% block acciones_top %}
+<a href="javascript: Opciones('{{ path('expediente_new') }}')">
+    Nuevo
+</a>
+{% endblock %}
+{% block cuerpo %}
+{{ grid(grid,'APYDataGridBundle::blocks_js.jquery.html.twig') }}
+{% endblock %}
+{% block acciones_bottom %}
+<a href="javascript: Opciones('{{ path('expediente_new') }}')">
+    Nuevo
+</a>
+{% endblock %}

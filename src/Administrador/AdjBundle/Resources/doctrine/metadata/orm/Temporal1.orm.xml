@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Temporal1" table="temporal1">
+    <id name="temporalId" type="integer" column="Temporal_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="descripcion" type="string" column="Descripcion" length="40" nullable="true"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+    <many-to-one field="entidad" target-entity="Entidad">
+      <join-columns>
+        <join-column name="Entidad_id" referenced-column-name="Entidad_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

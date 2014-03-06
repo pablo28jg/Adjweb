@@ -1,0 +1,26 @@
+{# src/Acme/BlogBundle/Resources/views/Entidad/new.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout.html.twig' %}
+{% block titulo %}Entidad{% endblock %}
+{% block cuerpo %}
+
+<form action="{{ path('entidad_update', { 'id': entity.id, 'tipoEntidad': tipoEntidad}) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(edit_form) }}
+    <p>
+        <button type="submit">Edit</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('entidad', { 'tipoEntidad': tipoEntidad }) }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('entidad_delete', { 'id': entity.id, 'tipoEntidad': tipoEntidad }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

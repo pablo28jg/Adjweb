@@ -1,0 +1,72 @@
+administrador_adj_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AdministradorAdjBundle:Default:index }
+    
+atributo:
+    pattern:  /atributo
+    defaults: { _controller: AdministradorAdjBundle:Atributo:index }
+    
+atributo_new:
+    pattern:  /atributo/new
+    defaults: { _controller: AdministradorAdjBundle:Atributo:new }
+    
+atributo_create:
+    pattern:  /atributo/create
+    defaults: { _controller: AdministradorAdjBundle:Atributo:ceate }
+
+atributo_show:
+    pattern:  /atributo/{id}
+    defaults: { _controller: AdministradorAdjBundle:Atributo:show }
+    
+atributo_edit:
+    pattern:  /atributo/{id}/edit
+    defaults: { _controller: AdministradorAdjBundle:Atributo:edit }
+
+atributo_delete:
+    pattern:  /atributo/{id}/delete
+    defaults: { _controller: AdministradorAdjBundle:Atributo:delete }
+
+atributo_update:
+    pattern:  /atributo/{id}/update
+    defaults: { _controller: AdministradorAdjBundle:Atributo:update }
+    
+expediente:
+    pattern:  /expediente
+    defaults: { _controller: AdministradorAdjBundle:expediente:index }
+    
+expediente_new:
+    pattern:  /expediente/new
+    defaults: { _controller: AdministradorAdjBundle:expediente:new }
+    
+expediente_create:
+    pattern:  /expediente/create
+    defaults: { _controller: AdministradorAdjBundle:expediente:create }
+
+expediente_show:
+    pattern:  /expediente/{id}
+    defaults: { _controller: AdministradorAdjBundle:expediente:show }
+    
+expediente_edit:
+    pattern:  /expediente/{id}/edit
+    defaults: { _controller: AdministradorAdjBundle:expediente:edit }
+
+expediente_delete:
+    pattern:  /expediente/{id}/delete
+    defaults: { _controller: AdministradorAdjBundle:expediente:delete }
+
+expediente_update:
+    pattern:  /expediente/{id}/update
+    defaults: { _controller: AdministradorAdjBundle:expediente:update }
+   
+entidad:
+    resource: "@AdministradorAdjBundle/Resources/config/routing/entidad.yml"
+    prefix:   /entidad
+    
+modulo:
+    resource: "@AdministradorAdjBundle/Resources/config/routing/modulo.yml"
+    prefix:   /modulo
+    
+opcion:
+    resource: "@AdministradorAdjBundle/Resources/config/routing/opcion.yml"
+    prefix:   /opcion
+    

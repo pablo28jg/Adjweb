@@ -1,0 +1,280 @@
+<?php
+
+namespace Administrador\AdjBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Administrador\AdjBundle\Entity\Tipoexpediente
+ *
+ * @ORM\Table(name="tipoexpediente")
+ * @ORM\Entity
+ */
+class Tipoexpediente
+{
+    /**
+     * @var integer $tipoexpedienteId
+     *
+     * @ORM\Column(name="TipoExpediente_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $tipoexpedienteId;
+
+    /**
+     * @var string $tipoexpediente
+     *
+     * @ORM\Column(name="TipoExpediente", type="string", length=300, nullable=true)
+     */
+    private $tipoexpediente;
+    
+    public function __toString()
+    {
+    	return $this->observaciones;
+    }
+
+    /**
+     * @var string $observaciones
+     *
+     * @ORM\Column(name="Observaciones", type="string", length=200, nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var integer $tipoestado
+     *
+     * @ORM\Column(name="TipoEstado", type="integer", nullable=true)
+     */
+    private $tipoestado;
+
+    /**
+     * @var boolean $tipoestadoborrado
+     *
+     * @ORM\Column(name="TipoEstadoBorrado", type="boolean", nullable=false)
+     */
+    private $tipoestadoborrado;
+
+    /**
+     * @var integer $creadoporId
+     *
+     * @ORM\Column(name="CreadoPor_id", type="integer", nullable=true)
+     */
+    private $creadoporId;
+
+    /**
+     * @var \DateTime $creadoel
+     *
+     * @ORM\Column(name="CreadoEl", type="datetime", nullable=true)
+     */
+    private $creadoel;
+
+    /**
+     * @var integer $actualizadoporId
+     *
+     * @ORM\Column(name="ActualizadoPor_id", type="integer", nullable=true)
+     */
+    private $actualizadoporId;
+
+    /**
+     * @var \DateTime $actualizadoel
+     *
+     * @ORM\Column(name="ActualizadoEl", type="datetime", nullable=true)
+     */
+    private $actualizadoel;
+
+
+
+    /**
+     * Get tipoexpedienteId
+     *
+     * @return integer 
+     */
+    public function getTipoexpedienteId()
+    {
+        return $this->tipoexpedienteId;
+    }
+
+    /**
+     * Set tipoexpediente
+     *
+     * @param string $tipoexpediente
+     * @return Tipoexpediente
+     */
+    public function setTipoexpediente($tipoexpediente)
+    {
+        $this->tipoexpediente = $tipoexpediente;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipoexpediente
+     *
+     * @return string 
+     */
+    public function getTipoexpediente()
+    {
+        return $this->tipoexpediente;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     * @return Tipoexpediente
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+    
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string 
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+
+    /**
+     * Set tipoestado
+     *
+     * @param integer $tipoestado
+     * @return Tipoexpediente
+     */
+    public function setTipoestado($tipoestado)
+    {
+        $this->tipoestado = $tipoestado;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipoestado
+     *
+     * @return integer 
+     */
+    public function getTipoestado()
+    {
+        return $this->tipoestado;
+    }
+
+    /**
+     * Set tipoestadoborrado
+     *
+     * @param boolean $tipoestadoborrado
+     * @return Tipoexpediente
+     */
+    public function setTipoestadoborrado($tipoestadoborrado)
+    {
+        $this->tipoestadoborrado = $tipoestadoborrado;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipoestadoborrado
+     *
+     * @return boolean 
+     */
+    public function getTipoestadoborrado()
+    {
+        return $this->tipoestadoborrado;
+    }
+
+    /**
+     * Set creadoporId
+     *
+     * @param integer $creadoporId
+     * @return Tipoexpediente
+     */
+    public function setCreadoporId($creadoporId)
+    {
+        $this->creadoporId = $creadoporId;
+    
+        return $this;
+    }
+
+    /**
+     * Get creadoporId
+     *
+     * @return integer 
+     */
+    public function getCreadoporId()
+    {
+        return $this->creadoporId;
+    }
+
+    /**
+     * Set creadoel
+     *
+     * @param \DateTime $creadoel
+     * @return Tipoexpediente
+     */
+    public function setCreadoel($creadoel)
+    {
+        $this->creadoel = $creadoel;
+    
+        return $this;
+    }
+
+    /**
+     * Get creadoel
+     *
+     * @return \DateTime 
+     */
+    public function getCreadoel()
+    {
+        return $this->creadoel;
+    }
+
+    /**
+     * Set actualizadoporId
+     *
+     * @param integer $actualizadoporId
+     * @return Tipoexpediente
+     */
+    public function setActualizadoporId($actualizadoporId)
+    {
+        $this->actualizadoporId = $actualizadoporId;
+    
+        return $this;
+    }
+
+    /**
+     * Get actualizadoporId
+     *
+     * @return integer 
+     */
+    public function getActualizadoporId()
+    {
+        return $this->actualizadoporId;
+    }
+
+    /**
+     * Set actualizadoel
+     *
+     * @param \DateTime $actualizadoel
+     * @return Tipoexpediente
+     */
+    public function setActualizadoel($actualizadoel)
+    {
+        $this->actualizadoel = $actualizadoel;
+    
+        return $this;
+    }
+
+    /**
+     * Get actualizadoel
+     *
+     * @return \DateTime 
+     */
+    public function getActualizadoel()
+    {
+        return $this->actualizadoel;
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Ciudad" table="ciudad">
+    <id name="ciudadId" type="integer" column="Ciudad_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ciudad" type="string" column="Ciudad" length="100" nullable="true"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+    <many-to-one field="municipio" target-entity="Municipio">
+      <join-columns>
+        <join-column name="Municipio_id" referenced-column-name="Municipio_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

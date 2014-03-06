@@ -1,0 +1,133 @@
+<h1>Entidad</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ entity.nombre }}</td>
+        </tr>
+        <tr>
+            <th>Apellidopaterno</th>
+            <td>{{ entity.apellidopaterno }}</td>
+        </tr>
+        <tr>
+            <th>Apellidomaterno</th>
+            <td>{{ entity.apellidomaterno }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ entity.email }}</td>
+        </tr>
+        <tr>
+            <th>Telefono1</th>
+            <td>{{ entity.telefono1 }}</td>
+        </tr>
+        <tr>
+            <th>Telefono2</th>
+            <td>{{ entity.telefono2 }}</td>
+        </tr>
+        <tr>
+            <th>Telefono3</th>
+            <td>{{ entity.telefono3 }}</td>
+        </tr>
+        <tr>
+            <th>Usuario</th>
+            <td>{{ entity.usuario }}</td>
+        </tr>
+        <tr>
+            <th>Esusuario</th>
+            <td>{{ entity.esusuario }}</td>
+        </tr>
+        <tr>
+            <th>Esabogado</th>
+            <td>{{ entity.esabogado }}</td>
+        </tr>
+        <tr>
+            <th>Escliente</th>
+            <td>{{ entity.escliente }}</td>
+        </tr>
+        <tr>
+            <th>Escontrario</th>
+            <td>{{ entity.escontrario }}</td>
+        </tr>
+        <tr>
+            <th>Esinstancia</th>
+            <td>{{ entity.esinstancia }}</td>
+        </tr>
+        <tr>
+            <th>Esotro</th>
+            <td>{{ entity.esotro }}</td>
+        </tr>
+        <tr>
+            <th>Direccionid</th>
+            <td>{{ entity.direccionId }}</td>
+        </tr>
+        <tr>
+            <th>Perfilid</th>
+            <td>{{ entity.perfilId }}</td>
+        </tr>
+        <tr>
+            <th>Esrepresentante</th>
+            <td>{{ entity.esrepresentante }}</td>
+        </tr>
+        <tr>
+            <th>Tipopersona</th>
+            <td>{{ entity.tipopersona }}</td>
+        </tr>
+        <tr>
+            <th>Rfc</th>
+            <td>{{ entity.rfc }}</td>
+        </tr>
+        <tr>
+            <th>Curp</th>
+            <td>{{ entity.curp }}</td>
+        </tr>
+        <tr>
+            <th>Tipoestado</th>
+            <td>{{ entity.tipoestado }}</td>
+        </tr>
+        <tr>
+            <th>Tipoestadoborrado</th>
+            <td>{{ entity.tipoestadoborrado }}</td>
+        </tr>
+        <tr>
+            <th>Creadoporid</th>
+            <td>{{ entity.creadoporId }}</td>
+        </tr>
+        <tr>
+            <th>Creadoel</th>
+            <td>{{ entity.creadoel|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Actualizadoporid</th>
+            <td>{{ entity.actualizadoporId }}</td>
+        </tr>
+        <tr>
+            <th>Actualizadoel</th>
+            <td>{{ entity.actualizadoel|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('entidad', { 'tipoEntidad': tipoEntidad }) }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('entidad_edit', { 'id': entity.id, 'tipoEntidad': tipoEntidad }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('entidad_delete', { 'id': entity.id, 'tipoEntidad': tipoEntidad }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Tipoexpediente" table="tipoexpediente">
+    <id name="tipoexpedienteId" type="integer" column="TipoExpediente_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="tipoexpediente" type="string" column="TipoExpediente" length="300" nullable="true"/>
+    <field name="observaciones" type="string" column="Observaciones" length="200" nullable="true"/>
+    <field name="tipoestado" type="integer" column="TipoEstado" nullable="true"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+  </entity>
+</doctrine-mapping>

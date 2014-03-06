@@ -1,0 +1,55 @@
+<h1>Modulo list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Modulo</th>
+            <th>Controller</th>
+            <th>Orden</th>
+            <th>Tipoestado</th>
+            <th>Tipomodulo</th>
+            <th>Tipoestadoborrado</th>
+            <th>Creadoporid</th>
+            <th>Creadoel</th>
+            <th>Actualizadoporid</th>
+            <th>Actualizadoel</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('modulo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.modulo }}</td>
+            <td>{{ entity.controller }}</td>
+            <td>{{ entity.orden }}</td>
+            <td>{{ entity.tipoestado }}</td>
+            <td>{{ entity.tipomodulo }}</td>
+            <td>{{ entity.tipoestadoborrado }}</td>
+            <td>{{ entity.creadoporId }}</td>
+            <td>{% if entity.creadoel %}{{ entity.creadoel|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.actualizadoporId }}</td>
+            <td>{% if entity.actualizadoel %}{{ entity.actualizadoel|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('modulo_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('modulo_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('modulo_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

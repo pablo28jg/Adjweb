@@ -1,0 +1,16 @@
+{# src/Acme/BlogBundle/Resources/views/Opcion/index_js.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout_js.html.twig' %}
+{% block titulo_opcion %}Opciones{% endblock %}
+{% block acciones_top %}
+<a href="javascript: Opciones('{{ path('opcion_new') }}')">
+    Nuevo
+</a>
+{% endblock %}
+{% block cuerpo %}
+{{ grid(grid,'APYDataGridBundle::blocks_js.jquery.html.twig') }}
+{% endblock %}
+{% block acciones_bottom %}
+<a href="javascript: Opciones('{{ path('opcion_new') }}')">
+    Nuevo
+</a>
+{% endblock %}

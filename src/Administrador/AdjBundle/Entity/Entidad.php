@@ -1,0 +1,897 @@
+<?php
+
+namespace Administrador\AdjBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use APY\DataGridBundle\Grid\Mapping as GRID;
+
+/**
+ * Administrador\AdjBundle\Entity\Entidad
+ *
+ * @ORM\Table(name="entidad")
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Entidad
+{
+    /**
+     * @var integer $entidadId
+     *
+     * @ORM\Column(name="Entidad_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+    
+    public function __toString()
+    {
+    	return $this->nombre;
+    }
+    
+    /** @ORM\prePersist */
+    public function afterPersit()
+    {
+    	$this->creadoel = new \DateTime();
+    	$this->tipoestadoborrado = false;
+    }
+
+    /**
+     * @var string $nombre
+     *
+     * @ORM\Column(name="Nombre", type="string", length=300, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string $apellidopaterno
+     *
+     * @ORM\Column(name="ApellidoPaterno", type="string", length=200, nullable=true)
+     */
+    private $apellidopaterno;
+
+    /**
+     * @var string $apellidomaterno
+     *
+     * @ORM\Column(name="ApellidoMaterno", type="string", length=200, nullable=true)
+     */
+    private $apellidomaterno;
+
+    /**
+     * @var string $email
+     *
+     * @ORM\Column(name="Email", type="string", length=200, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string $telefono1
+     *
+     * @ORM\Column(name="Telefono_1", type="string", length=14, nullable=true)
+     */
+    private $telefono1;
+
+    /**
+     * @var string $telefono2
+     *
+     * @ORM\Column(name="Telefono_2", type="string", length=14, nullable=true)
+     */
+    private $telefono2;
+
+    /**
+     * @var string $telefono3
+     *
+     * @ORM\Column(name="Telefono_3", type="string", length=14, nullable=true)
+     */
+    private $telefono3;
+
+    /**
+     * @var string $usuario
+     *
+     * @ORM\Column(name="Usuario", type="string", length=20, nullable=true)
+     */
+    private $usuario;
+
+    /**
+     * @var boolean $esusuario
+     *
+     * @ORM\Column(name="EsUsuario", type="boolean", nullable=true)
+     */
+    private $esusuario;
+
+    /**
+     * @var boolean $esabogado
+     *
+     * @ORM\Column(name="EsAbogado", type="boolean", nullable=true)
+     */
+    private $esabogado;
+
+    /**
+     * @var boolean $escliente
+     *
+     * @ORM\Column(name="EsCliente", type="boolean", nullable=true)
+     */
+    private $escliente;
+
+    /**
+     * @var boolean $escontrario
+     *
+     * @ORM\Column(name="EsContrario", type="boolean", nullable=true)
+     */
+    private $escontrario;
+
+    /**
+     * @var boolean $esinstancia
+     *
+     * @ORM\Column(name="EsInstancia", type="boolean", nullable=true)
+     */
+    private $esinstancia;
+
+    /**
+     * @var boolean $esotro
+     *
+     * @ORM\Column(name="EsOtro", type="boolean", nullable=true)
+     */
+    private $esotro;
+
+    /**
+     * @var integer $direccionId
+     *
+     * @ORM\Column(name="Direccion_id", type="integer", nullable=true)
+     */
+    private $direccionId;
+
+    /**
+     * @var integer $perfilId
+     *
+     * @ORM\Column(name="Perfil_id", type="integer", nullable=true)
+     */
+    private $perfilId;
+
+    /**
+     * @var boolean $esrepresentante
+     *
+     * @ORM\Column(name="EsRepresentante", type="boolean", nullable=true)
+     */
+    private $esrepresentante;
+
+    /**
+     * @var integer $tipopersona
+     *
+     * @ORM\Column(name="TipoPersona", type="integer", nullable=false)
+     */
+    private $tipopersona;
+
+    /**
+     * @var string $rfc
+     *
+     * @ORM\Column(name="RFC", type="string", length=20, nullable=true)
+     */
+    private $rfc;
+
+    /**
+     * @var string $curp
+     *
+     * @ORM\Column(name="CURP", type="string", length=20, nullable=true)
+     */
+    private $curp;
+
+    /**
+     * @var integer $tipoestado
+     *
+     * @ORM\Column(name="TipoEstado", type="integer", nullable=true)
+     */
+    private $tipoestado;
+
+    /**
+     * @var boolean $tipoestadoborrado
+     *
+     * @ORM\Column(name="TipoEstadoBorrado", type="boolean", nullable=false)
+     */
+    private $tipoestadoborrado;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Entidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Entidad_id", referencedColumnName="Entidad_id")
+     * })  
+     */
+    private $creadoporId;
+
+    /**
+     * @var \DateTime $creadoel
+     *
+     * @ORM\Column(name="CreadoEl", type="datetime", nullable=true)
+     */
+    private $creadoel;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Entidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Entidad_id", referencedColumnName="Entidad_id")
+     * })
+     */
+    private $actualizadoporId;
+
+    /**
+     * @var \DateTime $actualizadoel
+     *
+     * @ORM\Column(name="ActualizadoEl", type="datetime", nullable=true)
+     */
+    private $actualizadoel;
+
+    /**
+     * @var Empresa
+     *
+     * @ORM\ManyToOne(targetEntity="Empresa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Empresa_id", referencedColumnName="Empresa_id")
+     * })     
+     */
+    private $empresa;
+
+    /**
+     * @var Lenguaje
+     *
+     * @ORM\ManyToOne(targetEntity="Lenguaje")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Lenguaje_id", referencedColumnName="Lenguaje_id")
+     * })
+     */
+    private $lenguaje;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return Entidad
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set apellidopaterno
+     *
+     * @param string $apellidopaterno
+     * @return Entidad
+     */
+    public function setApellidopaterno($apellidopaterno)
+    {
+        $this->apellidopaterno = $apellidopaterno;
+    
+        return $this;
+    }
+
+    /**
+     * Get apellidopaterno
+     *
+     * @return string 
+     */
+    public function getApellidopaterno()
+    {
+        return $this->apellidopaterno;
+    }
+
+    /**
+     * Set apellidomaterno
+     *
+     * @param string $apellidomaterno
+     * @return Entidad
+     */
+    public function setApellidomaterno($apellidomaterno)
+    {
+        $this->apellidomaterno = $apellidomaterno;
+    
+        return $this;
+    }
+
+    /**
+     * Get apellidomaterno
+     *
+     * @return string 
+     */
+    public function getApellidomaterno()
+    {
+        return $this->apellidomaterno;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Entidad
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set telefono1
+     *
+     * @param string $telefono1
+     * @return Entidad
+     */
+    public function setTelefono1($telefono1)
+    {
+        $this->telefono1 = $telefono1;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono1
+     *
+     * @return string 
+     */
+    public function getTelefono1()
+    {
+        return $this->telefono1;
+    }
+
+    /**
+     * Set telefono2
+     *
+     * @param string $telefono2
+     * @return Entidad
+     */
+    public function setTelefono2($telefono2)
+    {
+        $this->telefono2 = $telefono2;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono2
+     *
+     * @return string 
+     */
+    public function getTelefono2()
+    {
+        return $this->telefono2;
+    }
+
+    /**
+     * Set telefono3
+     *
+     * @param string $telefono3
+     * @return Entidad
+     */
+    public function setTelefono3($telefono3)
+    {
+        $this->telefono3 = $telefono3;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono3
+     *
+     * @return string 
+     */
+    public function getTelefono3()
+    {
+        return $this->telefono3;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param string $usuario
+     * @return Entidad
+     */
+    public function setUsuario($usuario)
+    {
+        $this->usuario = $usuario;
+    
+        return $this;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return string 
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * Set esusuario
+     *
+     * @param boolean $esusuario
+     * @return Entidad
+     */
+    public function setEsusuario($esusuario)
+    {
+        $this->esusuario = $esusuario;
+    
+        return $this;
+    }
+
+    /**
+     * Get esusuario
+     *
+     * @return boolean 
+     */
+    public function getEsusuario()
+    {
+        return $this->esusuario;
+    }
+
+    /**
+     * Set esabogado
+     *
+     * @param boolean $esabogado
+     * @return Entidad
+     */
+    public function setEsabogado($esabogado)
+    {
+        $this->esabogado = $esabogado;
+    
+        return $this;
+    }
+
+    /**
+     * Get esabogado
+     *
+     * @return boolean 
+     */
+    public function getEsabogado()
+    {
+        return $this->esabogado;
+    }
+
+    /**
+     * Set escliente
+     *
+     * @param boolean $escliente
+     * @return Entidad
+     */
+    public function setEscliente($escliente)
+    {
+        $this->escliente = $escliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get escliente
+     *
+     * @return boolean 
+     */
+    public function getEscliente()
+    {
+        return $this->escliente;
+    }
+
+    /**
+     * Set escontrario
+     *
+     * @param boolean $escontrario
+     * @return Entidad
+     */
+    public function setEscontrario($escontrario)
+    {
+        $this->escontrario = $escontrario;
+    
+        return $this;
+    }
+
+    /**
+     * Get escontrario
+     *
+     * @return boolean 
+     */
+    public function getEscontrario()
+    {
+        return $this->escontrario;
+    }
+
+    /**
+     * Set esinstancia
+     *
+     * @param boolean $esinstancia
+     * @return Entidad
+     */
+    public function setEsinstancia($esinstancia)
+    {
+        $this->esinstancia = $esinstancia;
+    
+        return $this;
+    }
+
+    /**
+     * Get esinstancia
+     *
+     * @return boolean 
+     */
+    public function getEsinstancia()
+    {
+        return $this->esinstancia;
+    }
+
+    /**
+     * Set esotro
+     *
+     * @param boolean $esotro
+     * @return Entidad
+     */
+    public function setEsotro($esotro)
+    {
+        $this->esotro = $esotro;
+    
+        return $this;
+    }
+
+    /**
+     * Get esotro
+     *
+     * @return boolean 
+     */
+    public function getEsotro()
+    {
+        return $this->esotro;
+    }
+
+    /**
+     * Set direccionId
+     *
+     * @param integer $direccionId
+     * @return Entidad
+     */
+    public function setDireccionId($direccionId)
+    {
+        $this->direccionId = $direccionId;
+    
+        return $this;
+    }
+
+    /**
+     * Get direccionId
+     *
+     * @return integer 
+     */
+    public function getDireccionId()
+    {
+        return $this->direccionId;
+    }
+
+    /**
+     * Set perfilId
+     *
+     * @param integer $perfilId
+     * @return Entidad
+     */
+    public function setPerfilId($perfilId)
+    {
+        $this->perfilId = $perfilId;
+    
+        return $this;
+    }
+
+    /**
+     * Get perfilId
+     *
+     * @return integer 
+     */
+    public function getPerfilId()
+    {
+        return $this->perfilId;
+    }
+
+    /**
+     * Set esrepresentante
+     *
+     * @param boolean $esrepresentante
+     * @return Entidad
+     */
+    public function setEsrepresentante($esrepresentante)
+    {
+        $this->esrepresentante = $esrepresentante;
+    
+        return $this;
+    }
+
+    /**
+     * Get esrepresentante
+     *
+     * @return boolean 
+     */
+    public function getEsrepresentante()
+    {
+        return $this->esrepresentante;
+    }
+
+    /**
+     * Set tipopersona
+     *
+     * @param integer $tipopersona
+     * @return Entidad
+     */
+    public function setTipopersona($tipopersona)
+    {
+        $this->tipopersona = $tipopersona;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipopersona
+     *
+     * @return integer 
+     */
+    public function getTipopersona()
+    {
+        return $this->tipopersona;
+    }
+
+    /**
+     * Set rfc
+     *
+     * @param string $rfc
+     * @return Entidad
+     */
+    public function setRfc($rfc)
+    {
+        $this->rfc = $rfc;
+    
+        return $this;
+    }
+
+    /**
+     * Get rfc
+     *
+     * @return string 
+     */
+    public function getRfc()
+    {
+        return $this->rfc;
+    }
+
+    /**
+     * Set curp
+     *
+     * @param string $curp
+     * @return Entidad
+     */
+    public function setCurp($curp)
+    {
+        $this->curp = $curp;
+    
+        return $this;
+    }
+
+    /**
+     * Get curp
+     *
+     * @return string 
+     */
+    public function getCurp()
+    {
+        return $this->curp;
+    }
+
+    /**
+     * Set tipoestado
+     *
+     * @param integer $tipoestado
+     * @return Entidad
+     */
+    public function setTipoestado($tipoestado)
+    {
+        $this->tipoestado = $tipoestado;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipoestado
+     *
+     * @return integer 
+     */
+    public function getTipoestado()
+    {
+        return $this->tipoestado;
+    }
+
+    /**
+     * Set tipoestadoborrado
+     *
+     * @param boolean $tipoestadoborrado
+     * @return Entidad
+     */
+    public function setTipoestadoborrado($tipoestadoborrado)
+    {
+        $this->tipoestadoborrado = $tipoestadoborrado;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipoestadoborrado
+     *
+     * @return boolean 
+     */
+    public function getTipoestadoborrado()
+    {
+        return $this->tipoestadoborrado;
+    }
+
+    /**
+     * Set creadoporId
+     *
+     * @param Administrador\AdjBundle\Entity\Entidad $creadoporId
+     * @return Entidad
+     */
+    public function setCreadoporId($creadoporId)
+    {
+        $this->creadoporId = $creadoporId;
+    
+        return $this;
+    }
+
+    /**
+     * Get creadoporId
+     *
+     * @return Administrador\AdjBundle\Entity\Entidad 
+     */
+    public function getCreadoporId()
+    {
+        return $this->creadoporId;
+    }
+
+    /**
+     * Set creadoel
+     *
+     * @param \DateTime $creadoel
+     * @return Entidad
+     */
+    public function setCreadoel($creadoel)
+    {
+        $this->creadoel = $creadoel;
+    
+        return $this;
+    }
+
+    /**
+     * Get creadoel
+     *
+     * @return \DateTime 
+     */
+    public function getCreadoel()
+    {
+        return $this->creadoel;
+    }
+
+    /**
+     * Set actualizadoporId
+     *
+     * @param Administrador\AdjBundle\Entity\Entidad $actualizadoporId
+     * @return Entidad
+     */
+    public function setActualizadoporId($actualizadoporId)
+    {
+        $this->actualizadoporId = $actualizadoporId;
+    
+        return $this;
+    }
+
+    /**
+     * Get actualizadoporId
+     *      
+     * @return Administrador\AdjBundle\Entity\Entidad 
+     */
+    public function getActualizadoporId()
+    {
+        return $this->actualizadoporId;
+    }
+
+    /**
+     * Set actualizadoel
+     *
+     * @param \DateTime $actualizadoel
+     * @return Entidad
+     */
+    public function setActualizadoel($actualizadoel)
+    {
+        $this->actualizadoel = $actualizadoel;
+    
+        return $this;
+    }
+
+    /**
+     * Get actualizadoel
+     *
+     * @return \DateTime 
+     */
+    public function getActualizadoel()
+    {
+        return $this->actualizadoel;
+    }
+
+    /**
+     * Set empresa
+     *
+     * @param Administrador\AdjBundle\Entity\Empresa $empresa
+     * @return Entidad
+     */
+    public function setEmpresa(\Administrador\AdjBundle\Entity\Empresa $empresa = null)
+    {
+        $this->empresa = $empresa;
+    
+        return $this;
+    }
+
+    /**
+     * Get empresa
+     *
+     * @return Administrador\AdjBundle\Entity\Empresa 
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    /**
+     * Set lenguaje
+     *
+     * @param Administrador\AdjBundle\Entity\Lenguaje $lenguaje
+     * @return Entidad
+     */
+    public function setLenguaje(\Administrador\AdjBundle\Entity\Lenguaje $lenguaje = null)
+    {
+        $this->lenguaje = $lenguaje;
+    
+        return $this;
+    }
+
+    /**
+     * Get lenguaje
+     *
+     * @return Administrador\AdjBundle\Entity\Lenguaje 
+     */
+    public function getLenguaje()
+    {
+        return $this->lenguaje;
+    }
+}

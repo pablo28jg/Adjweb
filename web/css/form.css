@@ -1,0 +1,15 @@
+.content_form div{
+	padding: 5px;
+	width: 100%;
+}
+
+.content_form div label{
+	width: 20%;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font: bold;
+}
+
+.content_form div input,select{
+	width: 77%;
+}

@@ -1,0 +1,31 @@
+entidad:
+    pattern:  /{tipoEntidad}
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:index" }
+    requirements: { _method: GET }
+
+entidad_show:
+    pattern:  /{id}/{tipoEntidad}/show
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:show" }
+
+entidad_new:
+    pattern:  /{tipoEntidad}/new
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:new" }
+
+entidad_create:
+    pattern:  /{id}/{tipoEntidad}/create
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:create" }
+    requirements: { _method: post }
+
+entidad_edit:
+    pattern:  /{id}/{tipoEntidad}/edit
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:edit" }
+
+entidad_update:
+    pattern:  /{id}/{tipoEntidad}/update
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:update" }
+    requirements: { _method: post }
+
+entidad_delete:
+    pattern:  /{id}/{tipoEntidad}/delete
+    defaults: { _controller: "AdministradorAdjBundle:Entidad:delete" }
+    requirements: { _method: get }

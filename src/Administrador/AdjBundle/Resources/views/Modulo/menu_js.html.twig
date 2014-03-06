@@ -1,0 +1,5 @@
+<ul>
+	{% for entity in entities %}
+	<li><a href="javascript: Modulos('{{ path('opcion_menu',{ 'modulo_id': entity.id }) }}')">{{ entity.modulo }}</a></li>
+	{% endfor %}
+</ul>

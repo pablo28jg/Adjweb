@@ -1,0 +1,11 @@
+<ul>
+	<?php  foreach($entity in $entities)
+	{ ?>
+	<li>
+	<?php  if($entity->function!= "")
+	{?>
+		<a href="javascript: Opciones('<?php  echo $view['router']->generate('entidad', array('tipoEntidad' => 'cliente'))?>')"><?php  echo $entity->opcion; ?></a>
+	<?php }else{ echo $entiyt->opcion }?>
+	</li>	
+	<?php } ?>
+</ul>

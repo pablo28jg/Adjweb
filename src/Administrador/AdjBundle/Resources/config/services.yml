@@ -1,0 +1,7 @@
+parameters:
+#    administrador_adj.example.class: Administrador\AdjBundle\Example
+
+services:
+#    administrador_adj.example:
+#        class: %administrador_adj.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

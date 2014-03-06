@@ -1,0 +1,17 @@
+{# src/Acme/BlogBundle/Resources/views/Entidad/index.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout.html.twig' %}
+{% block titulo %}Expedientes{% endblock %}
+{% block titulo_opcion %}Expedientes{% endblock %}
+{% block acciones_top %}
+<a href="{{ path('entidad_new', {'tipoEntidad': tipoEntidad}) }}">
+    Create a new entry
+</a>
+{% endblock %}
+{% block cuerpo %}
+	{{ grid(grid,'APYDataGridBundle::blocks_js.jquery.html.twig') }}
+{% endblock %}
+{% block acciones_bottom %}
+<a href="{{ path('entidad_new', {'tipoEntidad': tipoEntidad}) }}">
+    Create a new entry
+</a>
+{% endblock %}

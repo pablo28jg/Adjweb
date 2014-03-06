@@ -1,0 +1,96 @@
+{# src/Acme/BlogBundle/Resources/views/Entidad/new.html.twig #}
+{% extends 'AdministradorAdjBundle::Layout.html.twig' %}
+{% block titulo %}Entidad{% endblock %}
+{% block titulo_opcion %}Entidad0{% endblock %}
+{% block script %}
+<script type="text/javascript" lang="javascript">
+<!--
+//-->
+	$(function() {
+    	$( "#tabs" ).tabs();
+  	});
+</script>
+{% endblock %}
+{% block acciones_top %}
+	<a href="{{ path('expediente') }}">
+        Back to the list
+    </a>
+{% endblock %}
+{% block cuerpo %}
+<form action="{{ path('expediente_create') }}" method="post" {{ form_enctype(form) }}>
+	{{ form_errors(form) }}
+    <div>
+		{{ form_label(form.numeroexpedienteKy,"Expediente") }}
+		{{ form_errors(form.numeroexpedienteKy) }}
+		{{ form_widget(form.numeroexpedienteKy) }}
+	</div>
+	<div>
+		{{ form_label(form.titulojuicio,"Titulo juicio") }}
+		{{ form_errors(form.titulojuicio) }}
+		{{ form_widget(form.titulojuicio) }}
+	</div>
+	<div>
+		{{ form_label(form.tipojuicio,"Tipo juicio") }}
+		{{ form_errors(form.tipojuicio) }}
+		{{ form_widget(form.tipojuicio) }}
+	</div>
+	<div>
+		{{ form_label(form.abogado,"Abogado") }}
+		{{ form_errors(form.abogado) }}
+		{{ form_widget(form.abogado) }}
+	</div>
+	<div>
+		{{ form_label(form.estadoprocesal,"Estado procesal") }}
+		{{ form_errors(form.estadoprocesal) }}
+		{{ form_widget(form.estadoprocesal) }}
+	</div>
+	<div>
+		{{ form_label(form.juzgado,"Juzgado") }}
+		{{ form_errors(form.juzgado) }}
+		{{ form_widget(form.juzgado) }}
+	</div>
+	<div>
+		{{ form_label(form.instanciaactual,"Instancia actual") }}
+		{{ form_errors(form.instanciaactual) }}
+		{{ form_widget(form.instanciaactual) }}
+	</div>
+	<div>
+		{{ form_label(form.cliente,"Cliente") }}
+		{{ form_errors(form.cliente) }}
+		{{ form_widget(form.cliente) }}
+	</div>
+	<div>
+		{{ form_label(form.tipoexpediente,"Tipo") }}
+		{{ form_errors(form.tipoexpediente) }}
+		{{ form_widget(form.tipoexpediente) }}
+	</div>
+	<div>
+		{{ form_label(form.cuantia,"Cuantia") }}
+		{{ form_errors(form.cuantia) }}
+		{{ form_widget(form.cuantia) }}
+	</div>
+	<div>
+		{{ form_label(form.contrario,"Contrario") }}
+		{{ form_errors(form.contrario) }}
+		{{ form_widget(form.contrario) }}
+	</div><div>
+		{{ form_label(form.empresa,"Empresa") }}
+		{{ form_errors(form.empresa) }}
+		{{ form_widget(form.empresa) }}
+	</div>
+	<div>
+		{{ form_label(form.tipoestado,"Estado") }}
+		{{ form_errors(form.tipoestado) }}
+		{{ form_widget(form.tipoestado) }}
+	</div>
+	{{ form_rest(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+{% endblock %}
+{% block acciones_bottom %}	
+	<a href="{{ path('expediente') }}">
+	        Back to the list
+	</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Perfildetalleatributo" table="perfildetalleatributo">
+    <id name="perfildetalleatributoId" type="integer" column="PerfilDetalleAtributo_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="tipoacceso" type="integer" column="TipoAcceso" nullable="false"/>
+    <field name="funcion" type="string" column="Funcion" length="30" nullable="false"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+    <many-to-one field="perfil" target-entity="Perfil">
+      <join-columns>
+        <join-column name="Perfil_id" referenced-column-name="Perfil_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="perfildetalle" target-entity="Perfildetalle">
+      <join-columns>
+        <join-column name="PerfilDetalle_id" referenced-column-name="PerfilDetalle_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="atributo" target-entity="Atributo">
+      <join-columns>
+        <join-column name="Atributo_id" referenced-column-name="Atributo_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

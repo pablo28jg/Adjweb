@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Estado" table="estado">
+    <id name="estadoId" type="integer" column="Estado_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="estado" type="string" column="Estado" length="150" nullable="true"/>
+    <field name="tipoestadoborrado" type="boolean" column="TipoEstadoBorrado" nullable="false"/>
+    <field name="creadoporId" type="integer" column="CreadoPor_id" nullable="true"/>
+    <field name="creadoel" type="datetime" column="CreadoEl" nullable="true"/>
+    <field name="actualizadoporId" type="integer" column="ActualizadoPor_id" nullable="true"/>
+    <field name="actualizadoel" type="datetime" column="ActualizadoEl" nullable="true"/>
+    <many-to-one field="pais" target-entity="Pais">
+      <join-columns>
+        <join-column name="Pais_id" referenced-column-name="Pais_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
